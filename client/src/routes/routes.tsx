@@ -1,5 +1,5 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom'
-import Navbar from '@/layouts/navbar/Navbar'
+import Navbar from '@/layouts/navbar/Header'
 import Footer from '@/layouts/footer/Footer'
 // import authRoutes from './routes-config/authRoutes'
 // import ScrollProgress from '@/components/ui/scroll-progress'
