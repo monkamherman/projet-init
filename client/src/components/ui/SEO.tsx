@@ -42,9 +42,14 @@ export default SEO
 
 // Default SEO for each page
 const defaultSEO = {
-	keywords: [
-		'barthez kenwou',
-		"website"
+	"keywords": [
+		"devis",
+		"estimation",
+		"gestion de projet",
+		"automatic calcul",
+		"cost calculation",
+		"project workflow",
+		"materials management"
 	],
 	image: '/images/preview-image.png',
 	url: typeof window !== 'undefined' ? window.location.href : '',

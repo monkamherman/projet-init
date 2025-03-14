@@ -27,7 +27,8 @@
       "@/*": ["./src/*"]
     },
     // Active Node type
-    "types": ["node", "vite/client", "vitest/globals"]
+    "types": ["node", "vite/client", "vitest/globals"],
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src"]
 }

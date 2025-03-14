@@ -11,22 +11,28 @@ import helmet from 'helmet';
 import compression from 'compression';
 import cacheControl from 'express-cache-controller';
 
-async function startServer() {
-	const redisClient = createClient({
-	  url: 'redis://localhost:6379',
-	});
+// Création du client Redis en dehors de toute fonction
+const redisClient = createClient({
+	url: 'redis://localhost:6379',
+  });
+  
+  // Gestion des erreurs Redis
+  redisClient.on('error', (err) => {
+	console.error('Erreur de connexion Redis:', err.message);
+  });
+  
+  // Fonction pour démarrer le serveur
+  async function startServer() {
+	try {
+	  await redisClient.connect();
+	  console.log("Connexion Redis établie avec succès.");
+	} catch (err) {
+	  console.error('Erreur lors de la connexion Redis:');
+	  process.exit(1); // Arrête le serveur si Redis ne se connecte pas
+	}
+}
 
-	
-	redisClient.on('error', (err) => {
-		console.error('Erreur de connexion Redis:', err.message);
-	});
-	await redisClient.connect();
-  
-  
-	// Configuration du serveur Express...
-  }
-  
-  startServer();
+startServer()
 
 const morganStream = {
 	write: (message: string) => {
